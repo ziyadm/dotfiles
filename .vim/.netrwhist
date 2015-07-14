@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/ziyad/Desktop/Ziyad/Python/email/emailu'
+let g:netrw_dirhist_2='/Users/ziyad/Desktop/Ziyad/Python/email/emailu/mail_drivers'
+let g:netrw_dirhist_3='/Users/ziyad/Desktop/Ziyad/Python/email/config'
+let g:netrw_dirhist_4='/Users/ziyad/Desktop/Ziyad/Python/email/mail_drivers'
+let g:netrw_dirhist_5='/Users/ziyad/Desktop/Ziyad/Python/mailer/templates'
+let g:netrw_dirhist_6='/Users/ziyad/Desktop/Ziyad/Python/mailer/config'
+let g:netrw_dirhist_7='/Users/ziyad/Desktop/Ziyad/Python/mailer/templates'
+let g:netrw_dirhist_8='/Users/ziyad/Desktop/Ziyad/Python/mailer/test'
