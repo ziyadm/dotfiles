@@ -3,7 +3,6 @@ set -o vi
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -13,18 +12,26 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ls='ls -G'
+alias feb='cd /home/uber/gocode/src/code.uber.internal/communications/febreze'
+alias ros='cd /home/uber/rosetta; source env/bin/activate; export CLAY_CONFIG=config/development.yaml'
+alias py='cd /home/uber/py-uicu; source env/bin/activate'
+alias res='git reset --hard origin/master'
+alias serve='fab serve'
+alias test='fab serve'
+alias web='cd /home/uber/web-rosetta'
+alias build='npm run build'
+alias tool='cd /home/uber/web-toolshed; npm run watch'
 alias claer='clear'
 alias cd='pushd'
 alias p='popd'
 alias co='git checkout'
 alias pull='git pull'
 alias b='git branch'
+alias ls='ls -G'
 alias clean="git gc && git branch | grep -v master | sed y/'*'/' '/ | cut -d ' ' -f 3 | xargs -n1 git branch -d $!"
-alias test='git diff HEAD^ --name-only | grep spec | grep -v factor | xargs -n1 rspec --fail-fast'
+alias newdev='boxer claim_vagrant --services golden --aws-type m4.2xlarge'
 
-
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LSCOLORS=exfxcxdxbxegedabagacad
 
 function prompt_command {
   PS_PWD="${PWD/#$HOME/~}"
@@ -68,7 +75,28 @@ $esc_gray[\u@$esc_host\h$esc_gray ― $esc_white\@$esc_gray ―$esc_white\${PS_G
   PS2=">$esc_reset "
 }
 
-termwide
-
 alias tree='tree -C'
 export EDITOR="vim"
+export CLAY_CONFIG="config/development.yaml"
+export VAGRANT_NAME='merkur-stealth-9'
+function dev() {
+  boxer v $VAGRANT_NAME;
+}
+function sync() {
+  boxer sync $VAGRANT_NAME uber/$1;
+}
+alias up='update-uber-home.sh'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+export PATH=$HOME/bin:$PATH
+
+
+function virtualenv_change() {
+  if [ -e "$PWD/env/bin/activate" ]; then
+      source "$PWD/env/bin/activate"
+  elif which deactivate &> /dev/null; then
+      deactivate
+  fi
+}
+
+chpwd_functions=(${chpwd_functions[@]} "virtualenv_change")

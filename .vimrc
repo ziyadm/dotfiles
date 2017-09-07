@@ -1,19 +1,20 @@
-set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'tpope/vim-rails'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'fatih/vim-go'
 Plugin 'slim-template/vim-slim'
 Plugin 'wincent/command-t'
-Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'vim-airline/vim-airline'
 Bundle 'edkolev/promptline.vim'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'terryma/vim-smooth-scroll'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'junegunn/fzf.vim'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
 
@@ -22,7 +23,6 @@ let g:ctrlp_max_depth = 40
 syntax enable
 syntax on
 set background=dark
-colorscheme base16-default
 
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
 
